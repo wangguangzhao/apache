@@ -1,0 +1,17 @@
+步骤一：
+	httpd.conf
+	1、开启LoadModule vhost_alias_module modules/mod_vhost_alias.so配置
+	2、添加监听端口Listen 80
+	3、修改访问权限 Directory下AllowOverride all、Require all granted
+步骤二：
+	extra/httpd-vhosts.conf
+	<VirtualHost *:80>
+    	DocumentRoot "H:/wamp/www/github"
+    	#配置域名虚拟主机需配置C:\Windows\System32\drivers\etc下vhost文件
+    	ServerName www.myproject.com    
+	</VirtualHost>
+	#配置端口虚拟主机
+	<VirtualHost *:80>
+	    DocumentRoot "H:\wamp\www\demo"
+	    ServerName 127.0.0.1
+	</VirtualHost>
